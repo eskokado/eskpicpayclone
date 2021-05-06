@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "Transactions")
+@Table(name = "TRANSACTIONS")
 public class Transaction extends EntityBase{
 
     @Column(name = "TR_CODE", nullable = false)

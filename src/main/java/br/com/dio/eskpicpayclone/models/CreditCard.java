@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "Users")
+@Table(name = "CREDIT_CARDS")
 public class CreditCard extends EntityBase {
 
     @Column(name = "CC_number", nullable = false)
