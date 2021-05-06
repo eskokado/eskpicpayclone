@@ -15,7 +15,7 @@ public abstract class ResourceBase<T> {
         return ResponseEntity.status(HttpStatus.CREATED).body(object);
     }
 
-    protected ResponseEntity<T> responseItemWithURI(
+    protected ResponseEntity<T> responseItemCreatedWithURI(
             T object, UriComponentsBuilder builder, String path, String code) {
         URI uri = builder.path(path).buildAndExpand(code).toUri();
         return ResponseEntity.created(uri).body(object);

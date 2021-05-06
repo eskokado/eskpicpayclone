@@ -1,5 +1,7 @@
 package br.com.dio.eskpicpayclone.services.impl;
 
+import br.com.dio.eskpicpayclone.converters.ConverterUser;
+import br.com.dio.eskpicpayclone.dto.UserDTO;
 import br.com.dio.eskpicpayclone.exceptions.BusinessException;
 import br.com.dio.eskpicpayclone.models.Transaction;
 import br.com.dio.eskpicpayclone.models.User;
@@ -10,12 +12,17 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService implements IUserService {
 
     @Autowired
     private IUserRepository userRepository;
+
+    @Autowired
+    private ConverterUser converterUser;
 
     @Override
     @Async("asyncExecutor")
@@ -46,5 +53,18 @@ public class UserService implements IUserService {
     @Override
     public User findEntity(String login) {
         return userRepository.findByLogin(login);
+    }
+
+    @Override
+    public UserDTO consult(String login) {
+        User user = findEntity(login);
+        return converterUser.convertEntityToDto(user);
+    }
+
+    @Override
+    public List<UserDTO> list(String login) {
+        List<User> users = userRepository.findAll();
+        List<User> userFiltered = users.stream().filter(v -> !v.getLogin().equals(login)).collect(Collectors.toList());
+        return converterUser.convertEntitiesToDtos(userFiltered);
     }
 }
