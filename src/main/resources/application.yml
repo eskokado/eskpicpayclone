@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: eskpicpayclone
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:52283/db_esk_picpay_clone
+    username: postgres
+    password: postgres
+    initialization-mode: always
+  api:
+    version: 1.0.0
+# JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-plataform: org.hibernate.dialect.PostgreSQLDialect
+    format_sql: true
