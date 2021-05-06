@@ -7,7 +7,9 @@ import br.com.dio.eskpicpayclone.repositories.ICreditCardRepository;
 import br.com.dio.eskpicpayclone.services.ICreditCardService;
 import br.com.dio.eskpicpayclone.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreditCardService implements ICreditCardService {
 
     @Autowired

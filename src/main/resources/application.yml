@@ -3,7 +3,7 @@ spring:
     name: eskpicpayclone
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:52283/db_esk_picpay_clone
+    url: jdbc:postgresql://localhost:5432/db_esk_picpay_clone
     username: postgres
     password: postgres
     initialization-mode: always
